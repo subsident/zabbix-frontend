@@ -1,2 +1,2 @@
 # zabbix-frontend
-Apache + PHP + Zabbix Frontend
+Apache + PHP + Zabbix Web Frontend
