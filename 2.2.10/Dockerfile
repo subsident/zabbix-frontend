@@ -6,8 +6,8 @@ RUN apt-get -y update && apt-get -y upgrade \
     && echo 'Europe/Moscow' > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata \
     && rm -frv /var/www/html/*
 
-COPY ../../src/zabbix-2.2.10.tar.gz /tmp/
-COPY ../configs/apache/conf-available/zabbix.conf /etc/apache2/conf-available/
+COPY src/zabbix-2.2.10.tar.gz /tmp/
+COPY container-files /
 
 RUN a2enconf zabbix.conf \
     && cd /tmp \
