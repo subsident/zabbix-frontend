@@ -7,9 +7,10 @@ RUN apt-get -y update && apt-get -y upgrade \
     && rm -frv /var/www/html/*
 
 COPY ../../src/zabbix-2.2.10.tar.gz /tmp/
-COPY ../configs/apache/conf/zabbix.conf /etc/apache2/conf-enabled/
+COPY ../configs/apache/conf-available/zabbix.conf /etc/apache2/conf-available/
 
-RUN cd /tmp \
+RUN a2enconf zabbix.conf \
+    && cd /tmp \
     && tar -xvzf zabbix-2.2.10.tar.gz \
     && rm -fv zabbix-2.2.10.tar.gz \
     && cp -rv zabbix-2.2.10/frontends/php/* /var/www/html/ \
